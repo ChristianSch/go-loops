@@ -3,13 +3,13 @@ package model
 import "encoding/json"
 
 type CreateContactData struct {
-	FirstName    *string                `json:"firstName"`
-	LastName     *string                `json:"lastName"`
+	FirstName    *string                `json:"firstName,omitempty"`
+	LastName     *string                `json:"lastName,omitempty"`
 	Email        string                 `json:"email"`
-	Source       *string                `json:"source"`
-	Subscribed   *bool                  `json:"subscribed"`
-	UserGroup    *string                `json:"userGroup"`
-	UserId       *string                `json:"userId"`
+	Source       *string                `json:"source,omitempty"`
+	Subscribed   *bool                  `json:"subscribed,omitempty"`
+	UserGroup    *string                `json:"userGroup,omitempty"`
+	UserId       *string                `json:"userId,omitempty"`
 	CustomFields map[string]interface{} `json:"-"`
 }
 
