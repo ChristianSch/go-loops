@@ -23,6 +23,8 @@ type ApiError struct {
 const (
 	// ApiErrorInvalidApiKey is returned when the API key is invalid
 	ApiErrorInvalidApiKey = "invalid api key"
+	// ContactAlreadyExists is returned when a contact with the same email already exists
+	ContactAlreadyExists = "contact for email already exists"
 )
 
 // interface for the API client

@@ -43,6 +43,8 @@ func (c ContactAPI) CreateContact(contact model.CreateContactData) (*model.Creat
 	// check for api errors
 	if res.StatusCode == http.StatusUnauthorized {
 		return nil, errors.New(model.ApiErrorInvalidApiKey)
+	} else if res.StatusCode == http.StatusConflict {
+		return nil, errors.New(model.ContactAlreadyExists)
 	} else if res.StatusCode != http.StatusOK {
 		return nil, errors.New("unexpected status code: " + res.Status)
 	}
