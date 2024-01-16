@@ -2,9 +2,12 @@
 
 Loops mailing SDK in Go
 
+## Example
+- [Create contact](examples/create_contact.go)
+
 ## API Coverage
 
-### Contags
+### Contacts
 
 | Functionality  | Since | API Doc                                            |
 | -------------- | ----- | -------------------------------------------------- |

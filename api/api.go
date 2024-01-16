@@ -16,7 +16,7 @@ type LoopsApiClient struct {
 
 // NewApiClient creates a new LoopsApiClient
 // url: the url of the loops instance (e.g. https://app.loops.so/api/v1)
-// token: the api token of the loops instance (see https://app.loops.so/settings?page=api)
+// token: the api token of the loops API (see https://app.loops.so/settings?page=api)
 func NewApiClient(url string, token string) *LoopsApiClient {
 	// remove trailing slash  of url
 	if url[len(url)-1] == '/' {

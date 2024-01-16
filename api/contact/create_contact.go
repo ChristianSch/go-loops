@@ -40,6 +40,13 @@ func (c ContactAPI) CreateContact(contact model.CreateContactData) (*model.Creat
 	}
 	defer res.Body.Close()
 
+	// check for api errors
+	if res.StatusCode == http.StatusUnauthorized {
+		return nil, errors.New(model.ApiErrorInvalidApiKey)
+	} else if res.StatusCode != http.StatusOK {
+		return nil, errors.New("unexpected status code: " + res.Status)
+	}
+
 	var resData createContractResponse
 
 	err = json.NewDecoder(res.Body).Decode(&resData)
