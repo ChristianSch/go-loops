@@ -1,12 +1,12 @@
 package contact_test
 
 import (
-	"fmt"
 	"testing"
 
 	"github.com/ChristianSch/go-loops/api"
 	"github.com/ChristianSch/go-loops/api/model"
 	"github.com/jarcoal/httpmock"
+	"github.com/stretchr/testify/assert"
 )
 
 func asPtr[T any](v T) *T {
@@ -43,20 +43,13 @@ func TestCreateContactSucceeds(t *testing.T) {
 
 	// Then
 	// No error should be returned
-	if err != nil {
-		t.Error("Unexpected error:", err)
-		return
-	}
-
-	fmt.Println("res:", res)
+	assert.NoError(t, err)
 
 	// The contact id should be returned
-	if res.ContactId != "123" {
-		t.Error("Unexpected contact id:", res.ContactId)
-	}
+	assert.Equal(t, "123", res.ContactId)
 }
 
-func TestCreateContactFails(t *testing.T) {
+func TestCreateContactFailsForInvalidApiKey(t *testing.T) {
 	// mock the api client with a mock http client
 	httpmock.Activate()
 	defer httpmock.DeactivateAndReset()
@@ -76,18 +69,14 @@ func TestCreateContactFails(t *testing.T) {
 
 	// When
 	// Creating a contact
-	res, err := client.ContactAPI().CreateContact(contact)
+	_, err := client.ContactAPI().CreateContact(contact)
 
 	// Then
 	// An error should be returned
-	if res != nil || err == nil {
-		t.Error("Unexpected error:", err)
-	}
+	assert.NotNil(t, err)
 
 	// The message should be returned as the error message
-	if err.Error() != "something went wrong" {
-		t.Error("Unexpected error message:", err.Error())
-	}
+	assert.Equal(t, model.ApiErrorInvalidApiKey, err.Error())
 }
 
 func TestCreateContactSucceedsWithCustomFields(t *testing.T) {
@@ -124,12 +113,8 @@ func TestCreateContactSucceedsWithCustomFields(t *testing.T) {
 
 	// Then
 	// No error should be returned
-	if err != nil {
-		t.Error("Unexpected error:", err)
-	}
+	assert.NoError(t, err)
 
 	// The contact id should be returned
-	if res.ContactId != "123" {
-		t.Error("Unexpected contact id:", res.ContactId)
-	}
+	assert.Equal(t, "123", res.ContactId)
 }
