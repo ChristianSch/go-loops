@@ -6,7 +6,7 @@ import (
 	"errors"
 	"net/http"
 
-	"github.com/ChristianSch/go-loops/api/model"
+	"github.com/graileanu/go-loops/api/model"
 )
 
 const (

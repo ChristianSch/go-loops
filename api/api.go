@@ -4,8 +4,8 @@ import (
 	"io"
 	"net/http"
 
-	"github.com/ChristianSch/go-loops/api/contact"
-	"github.com/ChristianSch/go-loops/api/model"
+	"github.com/graileanu/go-loops/api/contact"
+	"github.com/graileanu/go-loops/api/model"
 )
 
 type LoopsApiClient struct {

@@ -1,7 +1,7 @@
 package contact
 
 import (
-	"github.com/ChristianSch/go-loops/api/model"
+	"github.com/graileanu/go-loops/api/model"
 )
 
 type ContactAPI struct {

@@ -1,4 +1,4 @@
-module github.com/ChristianSch/go-loops
+module github.com/graileanu/go-loops
 
 go 1.21
 

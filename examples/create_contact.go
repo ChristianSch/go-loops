@@ -3,8 +3,8 @@ package main
 import (
 	"fmt"
 
-	loops "github.com/ChristianSch/go-loops/api"
-	"github.com/ChristianSch/go-loops/api/model"
+	loops "github.com/graileanu/go-loops/api"
+	"github.com/graileanu/go-loops/api/model"
 )
 
 func main() {

@@ -3,8 +3,8 @@ package contact_test
 import (
 	"testing"
 
-	"github.com/ChristianSch/go-loops/api"
-	"github.com/ChristianSch/go-loops/api/model"
+	"github.com/graileanu/go-loops/api"
+	"github.com/graileanu/go-loops/api/model"
 	"github.com/jarcoal/httpmock"
 	"github.com/stretchr/testify/assert"
 )
